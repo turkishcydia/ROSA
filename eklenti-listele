@@ -1,1 +1,6 @@
+#!/bin/bash
+
+clear
+echo  "İndilebilir/Kullanılabilir Eklentiler:"
+echo " "
 wget --list-files https://turkishcydia.github.io/ROSA

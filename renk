@@ -1,11 +1,11 @@
 #!/bin/bash
 
 clear
-echo  "Kullanacağınız Rengin Kodunu Girin: "
+echo  "Kullanacaginiz Rengin Kodunu Girin: "
 echo " "
 echo "1) Pembe"
 echo "2) Mavi"
-echo "3) Kırmızı"
+echo "3) Kirmizi"
 read COUNTRY
 
 case $COUNTRY in

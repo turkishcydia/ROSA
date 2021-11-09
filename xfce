@@ -94,8 +94,5 @@ clear
  launcher_kurulum
  rm -rf $HOME/.vnc/config
  vnc_kurulum
- mv $HOME/../usr/bin/rosa/rosa $HOME/rosa.RSX
- rm -rf $HOME/../usr/bin/rosa
- mv $HOME/rosa.RSX $HOME/../usr/bin/rosa
  chmod +x $HOME/../usr/bin/rosa
  echo "ROSA İçin 'XFCE4' Kuruldu. Başlatmak için "rosa" yazın."

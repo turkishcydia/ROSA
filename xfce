@@ -1,5 +1,38 @@
 #!/bin/bash
 
+
+launcher_kurulum() {
+	file="$HOME/../usr/bin/rosa"
+	if [[ -f "$file" ]]; then
+		rm -rf "$file"
+	fi
+	echo -e ${RED}"\n[*] ROSA Başlatma Komutları Hazırlanıyor... \n"
+	{ reset_color; touch $file; chmod +x $file; }
+	cat > $file <<- _EOF_
+		#!/data/data/com.termux/files/usr/bin/bash
+		# Export Display
+		export DISPLAY=":1"
+		# Start VNC Server
+		if [[ \$(pidof Xvnc) ]]; then
+		    echo -e "\\n[!] Sunucu Zaten Çalışıyor.."
+		    { vncserver -list; echo; }
+		    read -p "Kill VNC Server? (Y/N) : "
+		    if [[ "\$REPLY" == "Y" || "\$REPLY" == "y" ]]; then
+		        { killall Xvnc; echo; }
+		    else
+		        echo
+		    fi
+		else
+		    echo -e "\\n[*] VNC Sunucusu Başlatılıyor.."
+		    vncserver
+		fi
+	_EOF_
+	if [[ -f "$file" ]]; then
+		echo -e ${GREEN}"[*] ${ORANGE}$file ${GREEN}Script'i Hazırlandı!"
+	fi
+}
+
+
 vnc_kurulum() {
 	# backup old dir
 	if [[ -d "$HOME/.vnc" ]]; then
@@ -49,10 +82,6 @@ clear
  clear
  echo "ROSA 'XFCE4' İçin Kendini Yapılandırıyor..."
  sleep 2
- wget -P $HOME/ROSA_XFCE4/rosa https://turkishcydia.github.io/ROSA/xfce4/rosa
- rm -rf $HOME/../usr/bin/rosa
- mv $HOME/ROSA_XFCE4/rosa $HOME/../usr/bin/rosa
- rm -rf $HOME/ROSA_XFCE4
  clear
  vncserver -kill :1
  vncserver -kill :2
@@ -62,6 +91,7 @@ clear
  vncserver -kill :6
  vncserver -kill :7 
  clear
+ launcher_kurulum
  rm -rf $HOME/.vnc/config
  vnc_kurulum
  mv $HOME/../usr/bin/rosa/rosa $HOME/rosa.RSX

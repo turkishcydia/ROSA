@@ -64,14 +64,4 @@ clear
  clear
  rm -rf $HOME/.vnc/config
  vnc_kurulum
-
- echo "ROSA İçin 'XFCE4' Kuruldu. Başlatmak için "rosa" yazın.
- ;;
-    [hH][oO]|[nN])
- exit
-       ;;
-    *)
- echo "Yanlış Seçim..."
- exit 1
- ;;
-esac
+ echo "ROSA İçin 'XFCE4' Kuruldu. Başlatmak için "rosa" yazın."

@@ -27,23 +27,7 @@ case $input in
  vncserver -kill :6
  vncserver -kill :7 
  clear
- vnc_kurulum
- echo "ROSA İçin 'XFCE4' Kuruldu. Başlatmak için "rosa" yazın.
- ;;
-    [hH][oO]|[nN])
- exit
-       ;;
-    *)
- echo "Yanlış Seçim..."
- exit 1
- ;;
-esac
-
-
-
-
-vnc_kurulum() {
-	# backup old dir
+ 	# backup old dir
 	if [[ -d "$HOME/.vnc" ]]; then
 		mv $HOME/.vnc{,.old}
 	fi
@@ -62,4 +46,14 @@ vnc_kurulum() {
 		    echo -e ${ORANGE}"[*] VNC Zaten Çalışıyor"
 		    { reset_color; vncserver -list; }
 	fi
-}
+
+ echo "ROSA İçin 'XFCE4' Kuruldu. Başlatmak için "rosa" yazın.
+ ;;
+    [hH][oO]|[nN])
+ exit
+       ;;
+    *)
+ echo "Yanlış Seçim..."
+ exit 1
+ ;;
+esac

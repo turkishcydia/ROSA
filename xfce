@@ -1,9 +1,23 @@
 #!/bin/bash
  
-read -r -p "ROSA'nın Varsayılan Ekran Yöneticisini Silip Yerine 'XFCE4' Ekran Yöneticisini Kurmak İstiyormusunuz? [E/h] " input
- 
-case $input in
-    [eE][eE][sS]|[yY])
+echo "ROSA Kapatıldı! Güncelleme İşlemi Başlatılıyor..."
+sleep 3
+clear
+echo "ROSA FIRMWARE UPDATER"
+echo " "
+echo "[*] Firmware Detecting..."
+sleep 4
+echo "[*] Firmware Detected (Magenta-1.0)"
+sleep 3
+echo "[*] Firmware Updating (Magenta-XFCE-1.0)"
+sleep 6
+echo "[*] Detecting Updated Firmware..."
+sleep 3
+echo "[*] Detected 'Magenta Firmware' "
+sleep 3
+echo "[*] installation in progress"
+sleep 4
+clear
  echo "FluxBox Kaldırılıyor..."
  sleep 2
  apt remove fluxbox

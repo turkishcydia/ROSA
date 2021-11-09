@@ -34,7 +34,7 @@ case $input in
  exit
        ;;
     *)
- echo "Yanlış Seçim :("
+ echo "Yanlış Seçim..."
  exit 1
  ;;
 esac

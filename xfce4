@@ -1,0 +1,39 @@
+#!/bin/bash
+ 
+read -r -p "ROSA'nın Varsayılan Ekran Yöneticisini Silip Yerine 'XFCE4' Ekran Yöneticisini Kurmak İstiyormusunuz? [E/h] " input
+ 
+case $input in
+    [eE][eE][sS]|[yY])
+ echo "FluxBox Kaldırılıyor..."
+ sleep 2
+ apt remove fluxbox
+ clear
+ echo "XFCE4 Kuruluyor..."
+ sleep 2
+ pkg install xfce4
+ clear
+ echo "ROSA 'XFCE4' İçin Kendini Yapılandırıyor..."
+ sleep 2
+ wget -p $HOME/ROSA_XFCE4/rosa https://turkishcydia.github.io/ROSA/xfce4/rosa
+ rm -rf $HOME/../usr/bin/rosa
+ mv $HOME/ROSA_XFCE4 $HOME/../usr/bin/rosa
+ rm -rf $HOME/ROSA_XFCE4
+ clear
+ vncserver -kill :1
+ vncserver -kill :2
+ vncserver -kill :3
+ vncserver -kill :4
+ vncserver -kill :5
+ vncserver -kill :6
+ vncserver -kill :7 
+ clear
+ echo "ROSA İçin 'XFCE4' Kuruldu. Başlatmak için "rosa" yazın.
+ ;;
+    [hH][oO]|[nN])
+ exit
+       ;;
+    *)
+ echo "Yanlış Seçim :("
+ exit 1
+ ;;
+esac

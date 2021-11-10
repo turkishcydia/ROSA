@@ -1,0 +1,31 @@
+#!/bin/bash
+
+clear
+echo  "Kullanacaginiz Rengin Kodunu Girin: "
+echo " "
+echo "1) Pembe"
+echo "2) Mavi"
+echo "3) Kirmizi"
+read COUNTRY
+
+case $COUNTRY in
+
+  1)
+    echo -n "Renginiz Pembe Olarak Değiştirildi"
+    fbsetroot -solid pink
+    ;;
+
+  2)
+    echo -n "Renginiz Mavi Olarak Değiştirildi"
+    fbsetroot -solid blue
+    ;;
+
+  3)
+    echo -n "Renginiz Mavi Olarak Değiştirildi"
+    fbsetroot -solid red
+    ;;
+
+  *)
+    echo -n "unknown"
+    ;;
+esac

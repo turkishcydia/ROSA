@@ -20,18 +20,16 @@ install_rs() {
 	banner
 	echo " "
 	echo "[*] Dosya Sistemi İndiriliyor..."
-	wget -P $HOME/filesystem.RSU turkishycydia.github.io/ROSA/filesystem/filesystem.RSV
+	wget -P $HOME/filesystem.RSU https://turkishcydia.github.io/ROSA/filesystem/filesystem.RSV
 	sleep 2
 	echo " "
 	echo "[*] Dosya Sistemi Ayıklanıyor..."
 	mkdir $HOME/filesystem
 	7z x filesystem.RSU $HOME/filesystem
-	rm -rf $HOME/filesystem.RSU
 	sleep 2
 	echo " "
 	echo "[*] Dosya Sistemi Kullanılmak Üzere Ayarlanıyor..."
 	chmod +x $HOME/filesystem
-	chmod +x $HOME/filesystem/*
 	mv $HOME/filesystem $HOME/../usr/share/rs_filesystem
 	mv $HOME/../usr/share/rs_filesystem/user/bin/help.NA $HOME/../usr/share/rs_filesystem/user/bin/help
 	mv $HOME/../usr/share/rs_filesystem/user/bin/linux.NA $HOME/../usr/share/rs_filesystem/user/bin/linux

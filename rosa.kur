@@ -1,0 +1,78 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+## ANSI Renk Kodları
+RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
+MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
+REDBG="$(printf '\033[41m')"  GREENBG="$(printf '\033[42m')"  ORANGEBG="$(printf '\033[43m')"  BLUEBG="$(printf '\033[44m')"
+MAGENTABG="$(printf '\033[45m')"  CYANBG="$(printf '\033[46m')"  WHITEBG="$(printf '\033[47m')" BLACKBG="$(printf '\033[40m')"
+
+## Renkleri Sıfırla
+reset_color() {
+	printf '\033[37m'
+}
+
+
+
+
+# Rosa Kurulum Kodları
+install_rs() {
+	clear
+	banner
+	echo -e ${ORANGE}[*] ${GREEN}APT Güncelleniyor
+	sleep 1
+	apt update
+	clear
+	echo -e ${ORANGE}[*] ${GREEN}Gerekli Yazılımlar Kuruluyor
+	sleep 1
+	apt install proot-distro
+	clear
+	echo -e ${ORANGE}[*] ${GREEN}Dosya Sistemi İndiriliyor
+	sleep 1
+	wget -P $HOME/rosa.fs https://github.com/turkishcydia/ROSA/releases/download/rosafs/rosa.tar.gz
+	clear
+	echo -e ${ORANGE}[*] ${GREEN}Dosya Sistemi Ayıklanıyor
+	tar -tvf $HOME/rosa.fs $HOME/fs
+	mv $HOME/fs $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
+	echo -e ${ORANGE}[*] ${GREEN}Son Aşama...
+	sleep 2
+	wget -P $HOME/../usr/bin/rosa https://turkishcydia.github.io/ROSA/rosa.os
+	clear
+	echo -e ${GREEN}[*] ${MAGENTA}ROSA ${CYAN}Başarıyla Kuruldu! Başlatmak için ${ORANGE}rosa ${CYAN}yazın.
+
+
+## Yazı
+banner() {
+	clear
+    cat <<- EOF
+        ${MAGENTA}┌─────────────────────────────────────────────────────────┐
+        ${MAGENTA}│${CYAN}            ██████╗░░█████╗░░██████╗░█████╗░             ${MAGENTA}│
+        ${MAGENTA}│${CYAN}            ██╔══██╗██╔══██╗██╔════╝██╔══██╗             ${MAGENTA}│
+        ${MAGENTA}│${CYAN}            ██████╔╝██║░░██║╚█████╗░███████║             ${MAGENTA}│
+        ${MAGENTA}│${CYAN}            ██╔══██╗██║░░██║░╚═══██╗██╔══██║             ${MAGENTA}│
+        ${MAGENTA}│${CYAN}            ██║░░██║╚█████╔╝██████╔╝██║░░██║             ${MAGENTA}│
+        ${MAGENTA}│${CYAN}            ╚═╝░░╚═╝░╚════╝░╚═════╝░╚═╝░░╚═╝             ${MAGENTA}│
+        ${MAGENTA}└─────────────────────────────────────────────────────────┘
+	EOF
+}
+
+## Seçenekleri Göster
+usage() {
+	banner
+	echo -e ${ORANGE}"\nROSA"
+	echo -e ${ORANGE}"Kullanım : $(basename $0) --kur | --kaldır | --onar \n"
+}
+
+	
+
+
+
+## Yürütülecek Komutlar
+if [[ "$1" == "--kur" ]]; then
+	install_rs
+elif [[ "$1" == "--kaldır" ]]; then
+	uninstall_rs
+elif [[ "$1" == "--onar" ]]; then
+        repair_rs
+else
+	{ usage; reset_color; exit 0; }
+fi

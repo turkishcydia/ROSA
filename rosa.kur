@@ -28,10 +28,16 @@ install_rs() {
 	clear
 	echo -e ${ORANGE}[*] ${GREEN}Dosya Sistemi İndiriliyor
 	sleep 1
-	wget -P $HOME/rosa.fs https://github.com/turkishcydia/ROSA/releases/download/rosafs/rosa.tar.gz
+	wget -P $HOME/rosa-pt1.fs https://github.com/turkishcydia/ROSA/releases/download/rosafs/rosa-bdehll64m
+	wget -P $HOME/rosa-pt2.fs https://github.com/turkishcydia/ROSA/releases/download/rosafs/rosa-moprrsb
+	wget -P $HOME/rosa-pt3.fs https://github.com/turkishcydia/ROSA/releases/download/rosafs/rosa-sstu
+	wget -P $HOME/rosa-pt4.fs https://github.com/turkishcydia/ROSA/releases/download/rosafs/rosa-v
 	clear
 	echo -e ${ORANGE}[*] ${GREEN}Dosya Sistemi Ayıklanıyor
-	tar -tvf $HOME/rosa.fs $HOME/fs
+	tar -tvf $HOME/rosa-pt1.fs $HOME/fs
+	tar -tvf $HOME/rosa-pt2.fs $HOME/fs
+	tar -tvf $HOME/rosa-pt3.fs $HOME/fs
+	tar -tvf $HOME/rosa-pt4.fs $HOME/fs
 	mv $HOME/fs $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
 	echo -e ${ORANGE}[*] ${GREEN}Son Aşama...
 	sleep 2

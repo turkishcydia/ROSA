@@ -35,18 +35,24 @@ install_rs() {
 	clear
 	echo -e ${ORANGE}[*] ${GREEN}Dosya Sistemi Ayıklanıyor
 	mkdir $HOME/fs
-	tar -tvf $HOME/rosa-pt1.fs/rosa-bdehll64m $HOME/fs
-	tar -tvf $HOME/rosa-pt2.fs/rosa-moprrsb $HOME/fs
-	tar -tvf $HOME/rosa-pt3.fs/rosa-sstu $HOME/fs
-	tar -tvf $HOME/rosa-pt4.fs/rosa-v $HOME/fs
+	mv $HOME/rosa-pt1.fs/rosa-bdehll64m $HOME/rosa-pt1.fs/rosa.tar.xz
+	mv $HOME/rosa-pt2.fs/rosa-moprrsb $HOME/rosa-pt2.fs/rosa.tar.xz
+	mv $HOME/rosa-pt3.fs/rosa-sstu $HOME/rosa-pt3.fs/rosa.tar.xz
+	mv $HOME/rosa-pt4.fs/rosa-v $HOME/rosa-pt4.fs/rosa.tar.xz
+	tar -xf $HOME/rosa-pt1.fs/rosa.tar.xz $HOME/fs
+	tar -xf $HOME/rosa-pt2.fs/rosa.tar.xz $HOME/fs
+	tar -xf $HOME/rosa-pt3.fs/rosa.tar.xz $HOME/fs
+	tar -xf $HOME/rosa-pt4.fs/rosa.tar.xz $HOME/fs
 	rm -rf $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
 	mkdir $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
 	mv $HOME/fs $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
+	sleep 3
 	echo -e ${ORANGE}[*] ${GREEN}Son Aşama...
 	sleep 2
 	wget -P $HOME/rosa.o https://turkishcydia.github.io/ROSA/rosa.os
 	mv $HOME/rosa.o/rosa.os $HOME/../usr/bin/rosa
 	rm -rf $HOME/rosa.o
+	chmod +x $HOME/../usr/bin/rosa
 	clear
 	echo -e ${GREEN}[*] ${MAGENTA}ROSA ${CYAN}Başarıyla Kuruldu! Başlatmak için ${ORANGE}rosa ${CYAN}yazın.
 }

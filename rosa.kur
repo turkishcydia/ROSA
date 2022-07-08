@@ -44,6 +44,7 @@ install_rs() {
 	wget -P $HOME/../usr/bin/rosa https://turkishcydia.github.io/ROSA/rosa.os
 	clear
 	echo -e ${GREEN}[*] ${MAGENTA}ROSA ${CYAN}Başarıyla Kuruldu! Başlatmak için ${ORANGE}rosa ${CYAN}yazın.
+}
 
 
 ## Yazı

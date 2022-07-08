@@ -39,16 +39,34 @@ install_rs() {
 	mv $HOME/rosa-pt2.fs/rosa-moprrsb $HOME/rosa-pt2.fs/rosa.tar.xz
 	mv $HOME/rosa-pt3.fs/rosa-sstu $HOME/rosa-pt3.fs/rosa.tar.xz
 	mv $HOME/rosa-pt4.fs/rosa-v $HOME/rosa-pt4.fs/rosa.tar.xz
-	tar -xf $HOME/rosa-pt1.fs/rosa.tar.xz $HOME/fs
-	tar -xf $HOME/rosa-pt2.fs/rosa.tar.xz $HOME/fs
-	tar -xf $HOME/rosa-pt3.fs/rosa.tar.xz $HOME/fs
-	tar -xf $HOME/rosa-pt4.fs/rosa.tar.xz $HOME/fs
+	cd $HOME/rosa-pt1.fs
+	tar -xf $HOME/rosa-pt1.fs/rosa.tar.xz
+	sleep 2
+	cd $HOME/rosa-pt2.fs/rosa.tar.xz
+	tar -xf $HOME/rosa-pt2.fs/rosa.tar.xz
+	sleep 2
+	cd $HOME/rosa-pt3.fs/rosa.tar.xz
+	tar -xf $HOME/rosa-pt3.fs/rosa.tar.xz
+	sleep 2
+	cd $HOME/rosa-pt4.fs/rosa.tar.xz
+	tar -xf $HOME/rosa-pt4.fs/rosa.tar.xz
+	cd $HOME
+	sleep 2
+	mv $HOME/rosa-pt1.fs/* $HOME/fs
+	rm $HOME/fs/rosa.tar.xz
+	mv $HOME/rosa-pt2.fs/* $HOME/fs
+	rm $HOME/fs/rosa.tar.xz
+	mv $HOME/rosa-pt3.fs/* $HOME/fs
+	rm $HOME/fs/rosa.tar.xz
+	mv $HOME/rosa-pt4.fs/* $HOME/fs
+	rm $HOME/fs/rosa.tar.xz
 	rm -rf $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
 	mkdir $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
 	mv $HOME/fs $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
 	sleep 3
 	echo -e ${ORANGE}[*] ${GREEN}Son Aşama...
 	sleep 2
+	rm $HOME/../usr/bin/rosa
 	wget -P $HOME/rosa.o https://turkishcydia.github.io/ROSA/rosa.os
 	mv $HOME/rosa.o/rosa.os $HOME/../usr/bin/rosa
 	rm -rf $HOME/rosa.o

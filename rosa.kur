@@ -34,15 +34,19 @@ install_rs() {
 	wget -P $HOME/rosa-pt4.fs https://github.com/turkishcydia/ROSA/releases/download/rosafs/rosa-v
 	clear
 	echo -e ${ORANGE}[*] ${GREEN}Dosya Sistemi Ayıklanıyor
+	mkdir $HOME/fs
 	tar -tvf $HOME/rosa-pt1.fs/rosa-bdehll64m $HOME/fs
 	tar -tvf $HOME/rosa-pt2.fs/rosa-moprrsb $HOME/fs
 	tar -tvf $HOME/rosa-pt3.fs/rosa-sstu $HOME/fs
 	tar -tvf $HOME/rosa-pt4.fs/rosa-v $HOME/fs
+	rm -rf $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
 	mkdir $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
 	mv $HOME/fs $HOME/../usr/var/lib/proot-distro/installed-rootfs/rosa
 	echo -e ${ORANGE}[*] ${GREEN}Son Aşama...
 	sleep 2
-	wget -P $HOME/../usr/bin/rosa https://turkishcydia.github.io/ROSA/rosa.os
+	wget -P $HOME/rosa.o https://turkishcydia.github.io/ROSA/rosa.os
+	mv $HOME/rosa.o/rosa.os $HOME/../usr/bin/rosa
+	rm -rf $HOME/rosa.o
 	clear
 	echo -e ${GREEN}[*] ${MAGENTA}ROSA ${CYAN}Başarıyla Kuruldu! Başlatmak için ${ORANGE}rosa ${CYAN}yazın.
 }

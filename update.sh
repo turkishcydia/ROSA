@@ -1,8 +1,6 @@
 #!/bin/bash
 git reset --hard
 git pull > tmp
-git reset --hard
-
 while read -r row; do
 echo "$row"
 done < tmp
@@ -18,7 +16,6 @@ sleep 2
 git reset --hard
 echo "[*] Gerekli yamalar yükleniyor..."
 git pull
-chmod +x *
 sleep 2
 ./install.sh
 clear
@@ -42,6 +39,7 @@ rm tmp
 rm $HOME/rosa_old.tar.xz
 clear
 echo "PRoot ve Rosa başarıyla güncellendi! Şimdi kullanabilirsiniz."
+chmod +x *
 exit
 fi
 exit

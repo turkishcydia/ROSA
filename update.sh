@@ -1,4 +1,5 @@
 #!/bin/bash
+git reset --hard
 git pull > tmp
 
 while read -r row; do

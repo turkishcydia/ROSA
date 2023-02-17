@@ -13,8 +13,12 @@ then
 clear
 echo "PRoot-distro ve Rosa zaten güncel."
 fi
+clear
+git reset --hard
+chmod +x *
 echo "[*] Gerekli yamalar yükleniyor..."
 git pull
+chmod +x *
 sleep 2
 ./install.sh
 clear

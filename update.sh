@@ -1,8 +1,6 @@
 #!/bin/bash
-git reset --hard
-chmod +x *
+git pull --force --no-verify
 git pull > tmp
-chmod +x *
 
 while read -r row; do
 echo "$row"
@@ -14,8 +12,6 @@ clear
 echo "PRoot-distro ve Rosa zaten güncel."
 else
 clear
-git reset --hard
-chmod +x *
 echo "[*] Gerekli yamalar yükleniyor..."
 git pull
 chmod +x *

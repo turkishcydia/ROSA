@@ -39,7 +39,6 @@ rm tmp
 rm $HOME/rosa_old.tar.xz
 clear
 echo "PRoot ve Rosa başarıyla güncellendi! Şimdi kullanabilirsiniz."
-chmod +x *
 exit
 fi
 exit

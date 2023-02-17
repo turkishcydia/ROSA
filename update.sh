@@ -3,6 +3,8 @@ git reset --hard
 chmod +x *
 git pull > tmp
 chmod +x *
+git reset --hard
+chmod +x *
 
 while read -r row; do
 echo "$row"
@@ -10,10 +12,13 @@ done < tmp
 
 if [ $row="Already up to date." ]
 then
+git reset --hard
+chmod +x *
 clear
 echo "PRoot-distro ve Rosa zaten güncel."
 else
 clear
+sleep 2
 git reset --hard
 echo "[*] Gerekli yamalar yükleniyor..."
 git pull

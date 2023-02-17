@@ -4,6 +4,7 @@ git pull > tmp
 while read -r row; do
 echo "$row"
 done < tmp
+git reset --hard
 
 if [ $row="Already up to date." ]
 then

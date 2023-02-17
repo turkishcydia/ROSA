@@ -37,4 +37,4 @@ echo "Önbellek siliniyor..."
 rm tmp
 rm $HOME/rosa_old.tar.xz
 clear
-echo "PRoot ve Rosa başarıyla güncellendi! Şimdi kullanabilirsiniz."qqqqaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+echo "PRoot ve Rosa başarıyla güncellendi! Şimdi kullanabilirsiniz."

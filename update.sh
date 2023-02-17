@@ -1,5 +1,4 @@
 #!/bin/bash
-git pull --force --no-verify
 git pull > tmp
 
 while read -r row; do

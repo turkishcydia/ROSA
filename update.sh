@@ -9,6 +9,7 @@ if [ $row="Already up to date." ]
 then
 clear
 echo "PRoot-distro ve Rosa zaten güncel."
+rm tmp
 else
 echo "[*] Gerekli yamalar yükleniyor..."
 git pull

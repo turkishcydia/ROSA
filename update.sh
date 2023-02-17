@@ -12,7 +12,7 @@ if [ $row="Already up to date." ]
 then
 clear
 echo "PRoot-distro ve Rosa zaten güncel."
-fi
+else
 clear
 git reset --hard
 chmod +x *
@@ -42,3 +42,6 @@ rm tmp
 rm $HOME/rosa_old.tar.xz
 clear
 echo "PRoot ve Rosa başarıyla güncellendi! Şimdi kullanabilirsiniz."
+exit
+fi
+exit

@@ -15,7 +15,6 @@ echo "PRoot-distro ve Rosa zaten güncel."
 else
 clear
 git reset --hard
-chmod +x *
 echo "[*] Gerekli yamalar yükleniyor..."
 git pull
 chmod +x *

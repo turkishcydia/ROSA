@@ -1,20 +1,5 @@
 #!/bin/bash
-git pull > tmp
-
-while read -r row; do
-echo "$row"
-done < tmp
-
-if [ $row="Already up to date." ]
-then
 clear
-echo "PRoot-distro ve Rosa zaten güncel."
-else
-clear
-echo "[*] Gerekli yamalar yükleniyor..."
-git pull
-chmod +x *
-sleep 2
 ./install.sh
 clear
 echo "[*] Eski veriler yedekleniyor. Eğer yedeklenmez ise yeni sistem kurulduğu zaman bütün verileriniz kayıp olur."

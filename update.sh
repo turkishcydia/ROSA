@@ -10,6 +10,11 @@ then
 clear
 echo "Güncelleme: negatif"
 exit
+elif [ $row="Aborting" ]
+then
+rm update.sh
+git pull
+chmod +x update.sh
 else
 clear
 echo "[*] Gerekli yamalar yükleniyor..."

@@ -1,24 +1,6 @@
 #!/bin/bash
-git pull > tmp
-
-while read -r row; do
-echo "$row"
-done < tmp
-
-if [ $row="Already up to date." ]
-then
-clear
-echo "Güncelleme: negatif"
-exit
-elif [ $row="Aborting" ]
-then
-rm update.sh
-git pull
-chmod +x update.sh
-else
 clear
 echo "[*] Gerekli yamalar yükleniyor..."
-git pull
 sleep 2
 ./install.sh
 clear
@@ -42,4 +24,4 @@ rm tmp
 rm rosa_old.tar.xz
 clear
 echo "PRoot ve Rosa başarıyla güncellendi! Şimdi kullanabilirsiniz."
-fi
+exit
